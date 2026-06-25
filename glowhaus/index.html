@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GlowHaus — Transform Your Space with Light</title>
+<meta name="description" content="Premium sunset lamps and galaxy projectors that transform any room into an aesthetic paradise. Free shipping, 30-day guarantee.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+:root{--primary:#ff6b35;--primary-dark:#e55a2b;--warm:#fff5f0;--dark:#1a1a2e;--text:#333;--light:#f8f9fa;}
+body{font-family:'Inter',sans-serif;color:var(--text);line-height:1.7;}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:14px 0;transition:all 0.3s;}
+nav.scrolled{background:rgba(26,26,46,0.97);backdrop-filter:blur(12px);box-shadow:0 2px 20px rgba(0,0,0,0.15);}
+.nav-inner{max-width:1100px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;}
+.logo{font-family:'Playfair Display',serif;font-size:24px;font-weight:900;color:#fff;}
+.logo span{color:var(--primary);}
+.nav-links{display:flex;gap:24px;align-items:center;}
+.nav-links a{color:rgba(255,255,255,0.8);text-decoration:none;font-size:13px;font-weight:500;}
+.nav-cta{background:var(--primary);color:#fff !important;padding:10px 24px;border-radius:50px;font-weight:700;transition:all 0.2s;}
+.nav-cta:hover{background:var(--primary-dark);transform:scale(1.03);}
+
+/* HERO */
+.hero{min-height:100vh;background:linear-gradient(135deg,#1a1a2e 0%,#16213e 40%,#2d1b4e 100%);display:flex;align-items:center;color:#fff;position:relative;overflow:hidden;}
+.hero::before{content:'';position:absolute;top:50%;left:50%;width:500px;height:500px;background:radial-gradient(circle,rgba(255,107,53,0.15),transparent 70%);transform:translate(-50%,-50%);border-radius:50%;}
+.hero-content{max-width:1100px;margin:0 auto;padding:0 24px;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;}
+.hero-text{position:relative;z-index:1;}
+.hero-badge{display:inline-block;background:rgba(255,107,53,0.15);border:1px solid rgba(255,107,53,0.3);color:var(--primary);padding:6px 16px;border-radius:50px;font-size:11px;font-weight:600;letter-spacing:1px;margin-bottom:20px;}
+.hero h1{font-family:'Playfair Display',serif;font-size:clamp(36px,5vw,58px);font-weight:900;line-height:1.1;margin-bottom:16px;}
+.hero h1 span{color:var(--primary);}
+.hero p{font-size:17px;opacity:0.85;margin-bottom:32px;max-width:480px;line-height:1.7;}
+.hero-price{display:flex;align-items:baseline;gap:12px;margin-bottom:24px;}
+.hero-price .current{font-size:36px;font-weight:900;color:var(--primary);}
+.hero-price .original{font-size:18px;text-decoration:line-through;opacity:0.5;}
+.hero-price .save{background:rgba(255,107,53,0.2);color:var(--primary);padding:4px 12px;border-radius:20px;font-size:12px;font-weight:700;}
+.hero-btns{display:flex;gap:12px;flex-wrap:wrap;}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:16px 36px;border-radius:50px;text-decoration:none;font-weight:700;font-size:15px;transition:all 0.2s;}
+.btn-primary{background:var(--primary);color:#fff;box-shadow:0 4px 25px rgba(255,107,53,0.35);}
+.btn-primary:hover{background:var(--primary-dark);transform:translateY(-2px);box-shadow:0 8px 30px rgba(255,107,53,0.4);}
+.btn-secondary{border:2px solid rgba(255,255,255,0.2);color:#fff;}
+.hero-visual{position:relative;text-align:center;}
+.hero-img{width:100%;max-width:450px;border-radius:20px;box-shadow:0 30px 80px rgba(0,0,0,0.3);}
+.hero-glow{position:absolute;top:50%;left:50%;width:350px;height:350px;background:radial-gradient(circle,rgba(255,107,53,0.2),transparent 70%);transform:translate(-50%,-50%);border-radius:50%;animation:glow 3s ease-in-out infinite;}
+@keyframes glow{0%,100%{transform:translate(-50%,-50%) scale(1);}50%{transform:translate(-50%,-50%) scale(1.1);}}
+
+/* TRUST BAR */
+.trust{background:var(--dark);padding:24px;display:flex;justify-content:center;gap:50px;flex-wrap:wrap;color:#fff;font-size:13px;opacity:0.8;}
+.trust span{display:flex;align-items:center;gap:6px;}
+
+/* FEATURES */
+.features{padding:80px 24px;background:var(--warm);}
+.features-inner{max-width:1100px;margin:0 auto;}
+.section-header{text-align:center;margin-bottom:48px;}
+.section-header h2{font-family:'Playfair Display',serif;font-size:36px;font-weight:900;color:var(--dark);}
+.section-header p{color:#666;font-size:16px;max-width:500px;margin:12px auto 0;}
+.features-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+.feature-card{background:#fff;border-radius:16px;padding:32px;text-align:center;box-shadow:0 4px 20px rgba(0,0,0,0.04);transition:transform 0.3s;}
+.feature-card:hover{transform:translateY(-4px);}
+.feature-icon{font-size:36px;margin-bottom:16px;}
+.feature-card h3{font-size:18px;font-weight:700;margin-bottom:8px;color:var(--dark);}
+.feature-card p{color:#666;font-size:14px;line-height:1.6;}
+
+/* PRODUCT SHOWCASE */
+.showcase{padding:80px 24px;}
+.showcase-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;}
+.showcase-img{border-radius:20px;box-shadow:0 20px 60px rgba(0,0,0,0.08);width:100%;}
+.showcase-text h2{font-family:'Playfair Display',serif;font-size:32px;font-weight:900;margin-bottom:16px;color:var(--dark);}
+.showcase-text p{color:#666;margin-bottom:20px;font-size:15px;}
+.spec-list{list-style:none;padding:0;margin:20px 0;}
+.spec-list li{padding:10px 0;font-size:15px;display:flex;align-items:center;gap:10px;border-bottom:1px solid #f0f0f0;color:#444;}
+.spec-list li::before{content:'';width:8px;height:8px;background:var(--primary);border-radius:50%;flex-shrink:0;}
+
+/* TESTIMONIALS */
+.testimonials{padding:80px 24px;background:var(--light);}
+.test-grid{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+.test-card{background:#fff;border-radius:16px;padding:28px;box-shadow:0 2px 12px rgba(0,0,0,0.04);}
+.test-stars{color:#f59e0b;font-size:18px;margin-bottom:12px;}
+.test-text{color:#555;font-size:14px;font-style:italic;line-height:1.7;margin-bottom:16px;}
+.test-author{font-weight:700;color:var(--dark);font-size:14px;}
+
+/* CTA */
+.cta{background:linear-gradient(135deg,var(--dark),#2d1b4e);color:#fff;text-align:center;padding:80px 24px;}
+.cta h2{font-family:'Playfair Display',serif;font-size:36px;font-weight:900;margin-bottom:12px;}
+.cta p{opacity:0.75;margin-bottom:28px;font-size:16px;}
+.cta .price-box{display:inline-flex;align-items:baseline;gap:12px;margin-bottom:24px;}
+.cta .price-box .current{font-size:42px;font-weight:900;color:var(--primary);}
+.cta .price-box .original{font-size:20px;text-decoration:line-through;opacity:0.5;}
+
+/* GUARANTEE */
+.guarantee{padding:40px 24px;text-align:center;background:#fff;border-top:1px solid #eee;}
+.guarantee p{max-width:600px;margin:0 auto;font-size:13px;color:#888;}
+
+/* FOOTER */
+footer{background:var(--dark);color:rgba(255,255,255,0.5);padding:40px 24px;text-align:center;font-size:12px;}
+footer a{color:rgba(255,255,255,0.4);}
+
+/* MOBILE */
+@media(max-width:768px){
+  .hero-content{grid-template-columns:1fr;text-align:center;}
+  .hero-visual{order:-1;}
+  .hero p{margin:0 auto 32px;}
+  .hero-btns{justify-content:center;}
+  .features-grid{grid-template-columns:1fr;}
+  .showcase-inner{grid-template-columns:1fr;}
+  .test-grid{grid-template-columns:1fr;}
+  .trust{gap:20px;}
+}
+
+.fade-up{opacity:0;transform:translateY(30px);transition:opacity 0.6s,transform 0.6s;}
+.fade-up.visible{opacity:1;transform:none;}
+</style>
+</head>
+<body>
+
+<nav id="mainNav"><div class="nav-inner">
+  <div class="logo">Glow<span>Haus</span></div>
+  <div class="nav-links">
+    <a href="#features">Features</a>
+    <a href="#reviews">Reviews</a>
+    <a href="#order" class="nav-cta">Shop Now</a>
+  </div>
+</div></nav>
+
+<section class="hero">
+  <div class="hero-content">
+    <div class="hero-text">
+      <div class="hero-badge">OVER 10,000 HAPPY CUSTOMERS</div>
+      <h1>Transform Any Room Into a <span>Golden Hour</span> Paradise</h1>
+      <p>The original sunset projection lamp that went viral. Create stunning ambient lighting for your bedroom, living room, or content creation setup.</p>
+      <div class="hero-price">
+        <span class="current">$29.95</span>
+        <span class="original">$59.95</span>
+        <span class="save">SAVE 50%</span>
+      </div>
+      <div class="hero-btns">
+        <a href="#order" class="btn btn-primary">Order Now — Free Shipping</a>
+        <a href="#features" class="btn btn-secondary">Learn More</a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="hero-glow"></div>
+      <img src="https://images.unsplash.com/photo-1615529328331-f8917597711f?w=500&q=80" alt="Sunset Lamp in Room" class="hero-img">
+    </div>
+  </div>
+</section>
+
+<div class="trust">
+  <span>Free Shipping Worldwide</span>
+  <span>30-Day Money Back Guarantee</span>
+  <span>Secure Checkout</span>
+  <span>4.8 Star Average Rating</span>
+</div>
+
+<section class="features" id="features">
+  <div class="features-inner">
+    <div class="section-header">
+      <h2>Why Everyone Loves GlowHaus</h2>
+      <p>More than just a lamp — it's a mood, an experience, a vibe.</p>
+    </div>
+    <div class="features-grid">
+      <div class="feature-card fade-up">
+        <div class="feature-icon">🌅</div>
+        <h3>Stunning Sunset Effect</h3>
+        <p>Creates a warm, golden-hour glow on any wall or ceiling. Looks incredible in photos and videos.</p>
+      </div>
+      <div class="feature-card fade-up">
+        <div class="feature-icon">🎨</div>
+        <h3>16 Color Modes</h3>
+        <p>Switch between sunset, rainbow, aurora, and more. Match your mood or your room's aesthetic.</p>
+      </div>
+      <div class="feature-card fade-up">
+        <div class="feature-icon">🔌</div>
+        <h3>USB Powered</h3>
+        <p>Plugs into any USB port — laptop, power bank, wall adapter. No batteries needed, no bulbs to replace.</p>
+      </div>
+      <div class="feature-card fade-up">
+        <div class="feature-icon">📐</div>
+        <h3>Adjustable Angle</h3>
+        <p>180-degree rotation head lets you project onto walls, ceilings, or any surface you want.</p>
+      </div>
+      <div class="feature-card fade-up">
+        <div class="feature-icon">🤫</div>
+        <h3>Silent Operation</h3>
+        <p>Zero noise. Perfect for bedrooms, meditation spaces, or falling asleep to a warm ambient glow.</p>
+      </div>
+      <div class="feature-card fade-up">
+        <div class="feature-icon">🎁</div>
+        <h3>Perfect Gift</h3>
+        <p>Comes in beautiful packaging. One of the most-gifted items for birthdays, holidays, and housewarmings.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="showcase">
+  <div class="showcase-inner">
+    <img src="https://images.unsplash.com/photo-1617575521317-d2974f3b56d2?w=500&q=80" alt="Sunset Lamp Detail" class="showcase-img">
+    <div class="showcase-text">
+      <h2>Built to Impress</h2>
+      <p>Every GlowHaus lamp is crafted with premium materials and designed to last. The projection lens creates a sharp, beautiful gradient that fills your space with warm light.</p>
+      <ul class="spec-list">
+        <li>Premium aluminum alloy body</li>
+        <li>High-quality LED projection lens</li>
+        <li>5V USB-C power input</li>
+        <li>10,000+ hour LED lifespan</li>
+        <li>Compact design (10" tall)</li>
+        <li>Lightweight — only 0.8 lbs</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="testimonials" id="reviews">
+  <div class="section-header" style="margin-bottom:48px;">
+    <h2>What Our Customers Say</h2>
+  </div>
+  <div class="test-grid">
+    <div class="test-card fade-up">
+      <div class="test-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      <div class="test-text">"I literally cannot stop staring at it. My room looks like a professional photo studio now. Best purchase I've made all year."</div>
+      <div class="test-author">— Mia R.</div>
+    </div>
+    <div class="test-card fade-up">
+      <div class="test-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      <div class="test-text">"Bought this for my girlfriend's birthday and she was obsessed. The sunset effect on the wall is so much better than I expected."</div>
+      <div class="test-author">— Tyler K.</div>
+    </div>
+    <div class="test-card fade-up">
+      <div class="test-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      <div class="test-text">"I use this for all my content creation now. The warm glow makes everything look amazing on camera. Already ordered a second one."</div>
+      <div class="test-author">— Jasmine L.</div>
+    </div>
+  </div>
+</section>
+
+<section class="cta" id="order">
+  <h2>Ready to Transform Your Space?</h2>
+  <p>Join over 10,000 happy customers. Free shipping on every order.</p>
+  <div class="price-box">
+    <span class="current">$29.95</span>
+    <span class="original">$59.95</span>
+  </div>
+  <br>
+  <a href="https://www.amazon.com/s?k=sunset+projection+lamp+LED&tag=kantorland-20" class="btn btn-primary" target="_blank" rel="nofollow noopener" style="font-size:18px;padding:18px 48px;">
+    Order Now — Free Shipping
+  </a>
+  <p style="margin-top:16px;font-size:12px;opacity:0.5;">30-day money back guarantee. No questions asked.</p>
+</section>
+
+<div class="guarantee">
+  <p>We stand behind every GlowHaus product. If you're not completely satisfied within 30 days, we'll refund your purchase in full. No questions asked, no hassle. Your satisfaction is our top priority.</p>
+</div>
+
+<footer>
+  <p>&copy; 2026 GlowHaus. All rights reserved.</p>
+  <p style="margin-top:8px;opacity:0.6;">This site contains affiliate links. We may earn a commission on purchases at no extra cost to you.</p>
+</footer>
+
+<script>
+window.addEventListener('scroll',()=>{document.getElementById('mainNav').classList.toggle('scrolled',window.scrollY>50);});
+const observer=new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible');});},{threshold:0.1});
+document.querySelectorAll('.fade-up').forEach(el=>observer.observe(el));
+document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click',e=>{e.preventDefault();document.querySelector(a.getAttribute('href'))?.scrollIntoView({behavior:'smooth'});});});
+</script>
+</body>
+</html>
