@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Kantor Co. — How It All Works</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#0f172a;color:#e2e8f0;line-height:1.6;padding-bottom:60px;}
+header{background:linear-gradient(135deg,#0891b2,#0e7490);padding:40px 24px;text-align:center;}
+header h1{font-size:28px;font-weight:800;color:#fff;margin-bottom:6px;}
+header p{color:rgba(255,255,255,0.8);font-size:15px;}
+.legend{display:flex;flex-wrap:wrap;gap:16px;justify-content:center;padding:24px;max-width:900px;margin:0 auto;}
+.leg{display:flex;align-items:center;gap:8px;font-size:13px;color:#94a3b8;}
+.leg-dot{width:14px;height:14px;border-radius:50%;flex-shrink:0;}
+.container{max-width:1100px;margin:0 auto;padding:0 20px;}
+.section-label{font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#64748b;margin:32px 0 14px;}
+
+/* Room cards */
+.rooms{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px;margin-bottom:32px;}
+.room{background:#1e293b;border-radius:12px;padding:20px 22px;border:1px solid #334155;position:relative;}
+.room-header{display:flex;align-items:center;gap:10px;margin-bottom:12px;}
+.room-dot{width:10px;height:10px;border-radius:50%;flex-shrink:0;}
+.room-name{font-size:15px;font-weight:700;color:#f1f5f9;}
+.room-id{font-size:11px;color:#475569;margin-left:auto;font-family:monospace;}
+.room-desc{font-size:13px;color:#94a3b8;margin-bottom:12px;line-height:1.6;}
+.room-flows{display:flex;flex-direction:column;gap:6px;}
+.flow{display:flex;align-items:flex-start;gap:8px;font-size:12px;color:#64748b;}
+.flow-arrow{color:#0891b2;font-weight:700;flex-shrink:0;margin-top:1px;}
+.flow span{color:#cbd5e1;}
+.badge{display:inline-block;font-size:10px;font-weight:700;letter-spacing:0.5px;padding:2px 8px;border-radius:20px;margin-left:6px;vertical-align:middle;}
+.badge.active{background:#064e3b;color:#6ee7b7;}
+.badge.pending{background:#451a03;color:#fed7aa;}
+.badge.blocked{background:#450a0a;color:#fca5a5;}
+
+/* Data sources */
+.sources{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px;margin-bottom:32px;}
+.source{background:#1e293b;border-radius:10px;padding:16px 18px;border:1px solid #334155;}
+.source-name{font-size:13px;font-weight:700;color:#f1f5f9;margin-bottom:4px;}
+.source-detail{font-size:12px;color:#64748b;}
+
+/* Flow diagram */
+.flow-diagram{background:#1e293b;border-radius:12px;padding:28px;border:1px solid #334155;margin-bottom:32px;overflow-x:auto;}
+.flow-diagram h3{font-size:14px;font-weight:700;color:#94a3b8;margin-bottom:20px;letter-spacing:1px;text-transform:uppercase;}
+.pipeline{display:flex;align-items:center;flex-wrap:wrap;gap:0;margin-bottom:20px;}
+.pipe-node{background:#0f172a;border:1px solid #334155;border-radius:8px;padding:10px 16px;font-size:13px;color:#e2e8f0;text-align:center;white-space:nowrap;}
+.pipe-node.highlight{border-color:#0891b2;color:#7dd3fc;}
+.pipe-node.source{border-color:#7c3aed;color:#c4b5fd;}
+.pipe-node.store{border-color:#059669;color:#6ee7b7;}
+.pipe-arrow{color:#475569;font-size:18px;padding:0 6px;flex-shrink:0;}
+.pipeline-label{font-size:11px;color:#475569;margin-bottom:8px;font-weight:600;}
+
+/* Status table */
+.status-table{width:100%;border-collapse:collapse;font-size:13px;}
+.status-table th{text-align:left;padding:10px 14px;color:#64748b;font-weight:600;border-bottom:1px solid #334155;font-size:11px;letter-spacing:1px;text-transform:uppercase;}
+.status-table td{padding:10px 14px;border-bottom:1px solid #1e293b;color:#cbd5e1;vertical-align:top;}
+.status-table tr:hover td{background:#1e293b;}
+.status-ok{color:#6ee7b7;}
+.status-warn{color:#fed7aa;}
+.status-err{color:#fca5a5;}
+
+/* Color coding */
+.c-blue{background:#0891b2;}
+.c-purple{background:#7c3aed;}
+.c-green{background:#059669;}
+.c-amber{background:#d97706;}
+.c-red{background:#dc2626;}
+.c-slate{background:#475569;}
+.c-pink{background:#db2777;}
+.c-teal{background:#0d9488;}
+
+a{color:#7dd3fc;text-decoration:none;}
+a:hover{text-decoration:underline;}
+</style>
+</head>
+<body>
+<header>
+  <h1>Kantor Co. — How It All Works</h1>
+  <p>Every room, business, and data source in one place</p>
+</header>
+
+<div class="legend">
+  <div class="leg"><div class="leg-dot c-blue"></div> Web / Sales</div>
+  <div class="leg"><div class="leg-dot c-green"></div> E-commerce / Fulfillment</div>
+  <div class="leg"><div class="leg-dot c-purple"></div> Content / Marketing</div>
+  <div class="leg"><div class="leg-dot c-amber"></div> Finance / Investments</div>
+  <div class="leg"><div class="leg-dot c-teal"></div> Operations</div>
+</div>
+
+<div class="container">
+
+  <!-- PIPELINES -->
+  <div class="section-label">Order & Fulfillment Pipelines</div>
+  <div class="flow-diagram">
+    <h3>The Stem Co. — Dropship Pipeline</h3>
+    <div class="pipeline-label">Customer places order</div>
+    <div class="pipeline">
+      <div class="pipe-node source">thekantorco.com/stem-co</div>
+      <div class="pipe-arrow">→</div>
+      <div class="pipe-node highlight">PayPal Checkout</div>
+      <div class="pipe-arrow">→</div>
+      <div class="pipe-node highlight">IPN Webhook (Railway)</div>
+      <div class="pipe-arrow">→</div>
+      <div class="pipe-node highlight">_auto_order_cj()</div>
+      <div class="pipe-arrow">→</div>
+      <div class="pipe-node store">CJDropshipping ships to customer</div>
+    </div>
+
+    <h3 style="margin-top:24px;">Kantor Co. /hire — Website Build Pipeline</h3>
+    <div class="pipeline-label">Client orders a website</div>
+    <div class="pipeline">
+      <div class="pipe-node source">thekantorco.com/hire.html</div>
+      <div class="pipe-arrow">→</div>
+      <div class="pipe-node highlight">PayPal Checkout</div>
+      <div class="pipe-arrow">→</div>
+      <div class="pipe-node highlight">IPN Webhook (Railway)</div>
+      <div class="pipe-arrow">→</div>
+      <div class="pipe-node highlight">_auto_build_client_site()</div>
+      <div class="pipe-arrow">→</div>
+      <div class="pipe-node store">Preview link emailed to Jack for review</div>
+    </div>
+
+    <h3 style="margin-top:24px;">Web Studio — Lead Outreach Pipeline</h3>
+    <div class="pipeline-label">Bot finds businesses without websites</div>
+    <div class="pipeline">
+      <div class="pipe-node source">Google Places API</div>
+      <div class="pipe-arrow">→</div>
+      <div class="pipe-node highlight">Lead Finder scans Denver</div>
+      <div class="pipe-arrow">→</div>
+      <div class="pipe-node highlight">Deduplication + phone check</div>
+      <div class="pipe-arrow">→</div>
+      <div class="pipe-node highlight">Twilio SMS (5/day)</div>
+      <div class="pipe-arrow">→</div>
+      <div class="pipe-node store">Lead clicks thekantorco.com/hire</div>
+    </div>
+
+    <h3 style="margin-top:24px;">JaMadeGoods — Print on Demand Pipeline</h3>
+    <div class="pipeline-label">Bot generates original designs</div>
+    <div class="pipeline">
+      <div class="pipe-node source">Print Factory generates design</div>
+      <div class="pipe-arrow">→</div>
+      <div class="pipe-node highlight">Uploads to Printify</div>
+      <div class="pipe-arrow">→</div>
+      <div class="pipe-node highlight">Publishes to Etsy (JaMadeGoods)</div>
+      <div class="pipe-arrow">→</div>
+      <div class="pipe-node store">Printify fulfills + ships on sale</div>
+    </div>
+  </div>
+
+  <!-- ROOMS -->
+  <div class="section-label">Habitat Rooms</div>
+  <div class="rooms">
+
+    <div class="room">
+      <div class="room-header">
+        <div class="room-dot c-green"></div>
+        <div class="room-name">The Stem Co.</div>
+        <div class="room-id">drop-factory</div>
+      </div>
+      <div class="room-desc">Dropship store for crystal glasses, acrylic glasses, and the Iceberg Waterfall Decanter. Sources products from CJDropshipping and auto-fulfills PayPal orders.</div>
+      <div class="room-flows">
+        <div class="flow"><div class="flow-arrow">↑</div><span>PayPal IPN → auto-orders from CJ on each sale</span></div>
+        <div class="flow"><div class="flow-arrow">↑</div><span>CJ API key + email for auth</span></div>
+        <div class="flow"><div class="flow-arrow">→</div><span><a href="https://thekantorco.com/stem-co">thekantorco.com/stem-co</a></span></div>
+      </div>
+    </div>
+
+    <div class="room">
+      <div class="room-header">
+        <div class="room-dot c-green"></div>
+        <div class="room-name">JaMadeGoods</div>
+        <div class="room-id">print-factory</div>
+      </div>
+      <div class="room-desc">Generates original motivational designs (tees, hoodies, mugs, tumblers) and publishes them to the JaMadeGoods Etsy shop via Printify. 2 designs per day.<span class="badge pending">No listings yet</span></div>
+      <div class="room-flows">
+        <div class="flow"><div class="flow-arrow">↑</div><span>Printify API → JaMadeGoods Etsy (shop ID 28027468)</span></div>
+        <div class="flow"><div class="flow-arrow">↑</div><span>Original designs only — family-friendly, no copyrighted phrases</span></div>
+      </div>
+    </div>
+
+    <div class="room">
+      <div class="room-header">
+        <div class="room-dot c-green"></div>
+        <div class="room-name">Digital Vault</div>
+        <div class="room-id">digital-vault</div>
+      </div>
+      <div class="room-desc">Generates PDF digital products: planners, budget trackers, habit trackers, and more. Priced $3.99–$5.99. Lists on Etsy via JaMadeGoods shop. 3 products per day.</div>
+      <div class="room-flows">
+        <div class="flow"><div class="flow-arrow">↑</div><span>Generates PDF → uploads to Etsy via API</span></div>
+        <div class="flow"><div class="flow-arrow">↑</div><span>12 product types, no supplier needed (all digital)</span></div>
+      </div>
+    </div>
+
+    <div class="room">
+      <div class="room-header">
+        <div class="room-dot c-blue"></div>
+        <div class="room-name">Web Studio</div>
+        <div class="room-id">web-studio</div>
+      </div>
+      <div class="room-desc">Two jobs: (1) auto-builds client websites when a /hire order comes in and emails Jack for review. (2) runs Lead Finder daily to find Denver businesses without sites and texts them.</div>
+      <div class="room-flows">
+        <div class="flow"><div class="flow-arrow">↑</div><span>PayPal IPN → builds site → review queue</span></div>
+        <div class="flow"><div class="flow-arrow">↑</div><span>Google Places API → lead list → Twilio SMS</span></div>
+        <div class="flow"><div class="flow-arrow">→</div><span><a href="https://thekantorco.com/hire.html">thekantorco.com/hire.html</a></span></div>
+      </div>
+    </div>
+
+    <div class="room">
+      <div class="room-header">
+        <div class="room-dot c-purple"></div>
+        <div class="room-name">TopPick</div>
+        <div class="room-id">content-farm</div>
+      </div>
+      <div class="room-desc">Writes Amazon affiliate articles under the TopPick brand. Covers 6 niches: Home Office, Kitchen, Fitness, Tech, Outdoor, Pets. Uses Claude API. Deploys to thekantorco.com/kantor-content.</div>
+      <div class="room-flows">
+        <div class="flow"><div class="flow-arrow">↑</div><span>Anthropic API → article → GitHub Pages</span></div>
+        <div class="flow"><div class="flow-arrow">↑</div><span>Amazon affiliate tag: kantorland-20</span></div>
+        <div class="flow"><div class="flow-arrow">→</div><span><a href="https://thekantorco.com/kantor-content">thekantorco.com/kantor-content</a></span></div>
+      </div>
+    </div>
+
+    <div class="room">
+      <div class="room-header">
+        <div class="room-dot c-purple"></div>
+        <div class="room-name">Ad Studio</div>
+        <div class="room-id">ad-studio</div>
+      </div>
+      <div class="room-desc">Generates SVG ad creatives for product stores. Produces 2 ads per day in styles: offer, social proof, urgency, benefit. Tracks how many stores are active.</div>
+      <div class="room-flows">
+        <div class="flow"><div class="flow-arrow">↑</div><span>Generates SVG ads → saves to /ads folder</span></div>
+        <div class="flow"><div class="flow-arrow">↑</div><span>Pinterest campaign active: $7/day — check 2026-07-02</span></div>
+      </div>
+    </div>
+
+    <div class="room">
+      <div class="room-header">
+        <div class="room-dot c-amber"></div>
+        <div class="room-name">Prediction Markets</div>
+        <div class="room-id">prediction-markets</div>
+      </div>
+      <div class="room-desc">Scans Kalshi prediction markets for bets with edge (5%+ advantage). Uses Kelly criterion sizing. Max $25/bet, $100/day loss limit. Tracks wins/losses and adapts source weights.</div>
+      <div class="room-flows">
+        <div class="flow"><div class="flow-arrow">↑</div><span>Kalshi API → scan markets → place trades</span></div>
+        <div class="flow"><div class="flow-arrow">↑</div><span>Sources: weather, fed, sports, political signals</span></div>
+      </div>
+    </div>
+
+    <div class="room">
+      <div class="room-header">
+        <div class="room-dot c-amber"></div>
+        <div class="room-name">Kantor Investments</div>
+        <div class="room-id">kantor-investments</div>
+      </div>
+      <div class="room-desc">Reads live data from the stock trading bot running on a separate Railway service. Shows balance, open positions, and PnL in the habitat dashboard.</div>
+      <div class="room-flows">
+        <div class="flow"><div class="flow-arrow">↑</div><span>trading-bot-production-19b5.up.railway.app</span></div>
+        <div class="flow"><div class="flow-arrow">↑</div><span>Read-only data display — bot runs independently</span></div>
+      </div>
+    </div>
+
+    <div class="room">
+      <div class="room-header">
+        <div class="room-dot c-teal"></div>
+        <div class="room-name">Weekly Recap</div>
+        <div class="room-id">weekly-recap</div>
+      </div>
+      <div class="room-desc">Sends a weekly summary email covering all room activity: leads found, orders, articles written, ads created, investment PnL. Goes to jbot0012@gmail.com every week.</div>
+      <div class="room-flows">
+        <div class="flow"><div class="flow-arrow">↑</div><span>Reads all room logs → Gmail → weekly report</span></div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- DATA SOURCES -->
+  <div class="section-label">External Services & Data Sources</div>
+  <div class="sources">
+    <div class="source">
+      <div class="source-name">Railway</div>
+      <div class="source-detail">Hosts the habitat server 24/7 at $5/month. All agents run here continuously.</div>
+    </div>
+    <div class="source">
+      <div class="source-name">GitHub Pages</div>
+      <div class="source-detail">Hosts all websites at thekantorco.com for free. Git push deploys instantly.</div>
+    </div>
+    <div class="source">
+      <div class="source-name">CJDropshipping</div>
+      <div class="source-detail">Supplier for The Stem Co. Receives auto-orders and ships direct to customer.</div>
+    </div>
+    <div class="source">
+      <div class="source-name">Printify</div>
+      <div class="source-detail">Print-on-demand for JaMadeGoods. Fulfills tee/mug/hoodie orders from Etsy automatically.</div>
+    </div>
+    <div class="source">
+      <div class="source-name">Etsy (JaMadeGoods)</div>
+      <div class="source-detail">Shop ID 28027468. Sells digital products and print-on-demand items. OAuth connected.</div>
+    </div>
+    <div class="source">
+      <div class="source-name">PayPal IPN</div>
+      <div class="source-detail">Webhooks fire on every sale to agent-habitat-production.up.railway.app/api/paypal/webhook.</div>
+    </div>
+    <div class="source">
+      <div class="source-name">Twilio</div>
+      <div class="source-detail">Sends up to 5 SMS texts/day to local leads. A2P 10DLC compliance in review.</div>
+    </div>
+    <div class="source">
+      <div class="source-name">Google Places API</div>
+      <div class="source-detail">Searches for Denver businesses by type. Free up to $200/month credit.</div>
+    </div>
+    <div class="source">
+      <div class="source-name">Anthropic (Claude)</div>
+      <div class="source-detail">Powers TopPick article writing and all code generation via Claude Code.</div>
+    </div>
+    <div class="source">
+      <div class="source-name">Kalshi</div>
+      <div class="source-detail">Prediction market API. Scanned for edges every 10 seconds when active.</div>
+    </div>
+    <div class="source">
+      <div class="source-name">Amazon Associates</div>
+      <div class="source-detail">Affiliate tag: kantorland-20. TopPick articles link to Amazon products for commission.</div>
+    </div>
+    <div class="source">
+      <div class="source-name">Pinterest Ads</div>
+      <div class="source-detail">Active campaign for The Stem Co. $7/day, 3 ads, Consideration objective.</div>
+    </div>
+  </div>
+
+  <!-- STATUS -->
+  <div class="section-label">Status Snapshot — 2026-06-26</div>
+  <div class="flow-diagram" style="padding:0;overflow:hidden;">
+    <table class="status-table">
+      <thead>
+        <tr>
+          <th>Item</th>
+          <th>Status</th>
+          <th>Notes</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Habitat server (Railway)</td><td class="status-ok">Live</td><td>agent-habitat-production.up.railway.app</td></tr>
+        <tr><td>The Stem Co. store</td><td class="status-ok">Live</td><td>Crystal, Acrylic, Decanter — PayPal IPN wired</td></tr>
+        <tr><td>Kantor Co. /hire page</td><td class="status-ok">Live</td><td>$99 / $299 / $499 — PayPal IPN wired</td></tr>
+        <tr><td>Pinterest Ads — Stem Co.</td><td class="status-warn">Pending approval</td><td>3 ads submitted 2026-06-25, $7/day. Check 2026-07-02.</td></tr>
+        <tr><td>Twilio SMS outreach</td><td class="status-warn">Blocked</td><td>A2P 10DLC compliance in review. 12 leads ready to text.</td></tr>
+        <tr><td>JaMadeGoods Etsy listings</td><td class="status-warn">Not published yet</td><td>Print Factory connected to Printify but no live listings</td></tr>
+        <tr><td>Fiverr gig</td><td class="status-ok">Live</td><td>W-9 submitted, gig published</td></tr>
+        <tr><td>TopPick articles</td><td class="status-ok">Running</td><td>thekantorco.com/kantor-content — articles deploying</td></tr>
+        <tr><td>Prediction Markets</td><td class="status-ok">Scanning</td><td>Kalshi API — scanning for edge opportunities</td></tr>
+        <tr><td>Amazon Associates API</td><td class="status-warn">Waiting</td><td>Need 3 qualifying sales to unlock Product Advertising API</td></tr>
+        <tr><td>Google Analytics</td><td class="status-err">Not set up</td><td>No tracking on stem-co or portfolio yet</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+</div>
+</body>
+</html>
