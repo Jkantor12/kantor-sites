@@ -209,13 +209,28 @@ a{color:#7dd3fc;text-decoration:none;}a:hover{text-decoration:underline;}
     <div class="pline">
       <div class="pnode src">Google Places API (Denver businesses)</div>
       <div class="parr">→</div>
-      <div class="pnode proc">Lead Finder scans 12 categories</div>
+      <div class="pnode proc">Lead Finder scans 6 categories/day</div>
       <div class="parr">→</div>
       <div class="pnode proc">Deduplication — skip already-seen names</div>
       <div class="parr">→</div>
       <div class="pnode proc">Twilio SMS — up to 5/day <span class="badge warn">A2P pending</span></div>
       <div class="parr">→</div>
-      <div class="pnode out">Lead clicks thekantorco.com/hire</div>
+      <div class="pnode out">Daily digest → jbot0012@gmail.com (name, phone, pitch script)</div>
+    </div>
+  </div>
+
+  <div class="pipeline-box">
+    <h3>Template Studio — Preset &amp; Template Pipeline</h3>
+    <div class="pline">
+      <div class="pnode src">Template Studio picks product type</div>
+      <div class="parr">→</div>
+      <div class="pnode proc">Generates Lightroom preset pack (.xmp) or Notion HTML template</div>
+      <div class="parr">→</div>
+      <div class="pnode proc">QA filter checks all text before listing</div>
+      <div class="parr">→</div>
+      <div class="pnode proc">Uploads file → creates digital listing on Etsy</div>
+      <div class="parr">→</div>
+      <div class="pnode out">Sold as instant download ($3.99–$7.99) on JaMadeGoods</div>
     </div>
   </div>
 
@@ -315,11 +330,21 @@ a{color:#7dd3fc;text-decoration:none;}a:hover{text-decoration:underline;}
 
   <div class="room">
     <div class="room-hd"><div class="rdot c-blue"></div><div class="rname">Web Studio</div><div class="rid">web-studio</div></div>
-    <div class="rdesc">Two jobs: (1) builds client sites when a /hire order comes in, emails Jack to review. (2) Lead Finder scans Denver daily and texts businesses via Twilio.</div>
+    <div class="rdesc">Two jobs: (1) builds client sites when a /hire order comes in, emails Jack to review. (2) Lead Finder scans Denver daily, texts businesses via Twilio, and emails a daily digest to jbot0012@gmail.com.</div>
     <div class="rflows">
       <div class="rf"><div class="rf-arr">↑</div><span>Google Places API → lead list</span></div>
       <div class="rf"><div class="rf-arr">↑</div><span>Twilio SMS → 5 texts/day<span class="badge warn">A2P pending</span></span></div>
+      <div class="rf"><div class="rf-arr">↑</div><span>Daily digest email → jbot0012@gmail.com</span></div>
       <div class="rf"><div class="rf-arr">→</div><span><a href="https://thekantorco.com/hire.html">thekantorco.com/hire.html</a></span></div>
+    </div>
+  </div>
+
+  <div class="room">
+    <div class="room-hd"><div class="rdot c-green"></div><div class="rname">Template Studio</div><div class="rid">template-studio</div></div>
+    <div class="rdesc">Auto-generates Lightroom preset packs (.xmp) and Notion-style HTML templates. QA-filtered before listing. Sells as instant digital downloads on JaMadeGoods Etsy.</div>
+    <div class="rflows">
+      <div class="rf"><div class="rf-arr">↑</div><span>Python ZIP/HTML generation → Etsy API</span></div>
+      <div class="rf"><div class="rf-arr">↑</div><span>10 preset styles, 8 template types, $3.99–$7.99</span></div>
     </div>
   </div>
 
@@ -377,7 +402,7 @@ a{color:#7dd3fc;text-decoration:none;}a:hover{text-decoration:underline;}
   <div class="api-card"><div class="api-name">CJDropshipping API</div><div class="api-used">Used by: The Stem Co.</div><div class="api-detail">Sources products and auto-fulfills orders. Bot authenticates with CJ_API_KEY + CJ_EMAIL.</div></div>
   <div class="api-card"><div class="api-name">PayPal IPN</div><div class="api-used">Used by: Stem Co., /hire</div><div class="api-detail">Webhook fires to Railway on every sale. Routes by item_name to either CJ order or site build.</div></div>
   <div class="api-card"><div class="api-name">Printify API</div><div class="api-used">Used by: JaMadeGoods</div><div class="api-detail">Receives design uploads, creates products, publishes to Etsy. Shop ID: 28027468.</div></div>
-  <div class="api-card"><div class="api-name">Etsy API (OAuth)</div><div class="api-used">Used by: Digital Vault, JaMadeGoods</div><div class="api-detail">Lists digital products and print-on-demand items on the JaMadeGoods Etsy shop.</div></div>
+  <div class="api-card"><div class="api-name">Etsy API (OAuth)</div><div class="api-used">Used by: Digital Vault, Template Studio, Drop Factory</div><div class="api-detail">Lists digital products, preset packs, templates, and dropship items on JaMadeGoods Etsy shop. x-api-key requires full keystring:secret.</div></div>
   <div class="api-card"><div class="api-name">Google Places API</div><div class="api-used">Used by: Lead Finder</div><div class="api-detail">Searches Denver businesses by category. Free up to $200/month credit.</div></div>
   <div class="api-card"><div class="api-name">Twilio REST API</div><div class="api-used">Used by: Lead Finder</div><div class="api-detail">Sends SMS to local businesses. From +17372583742. A2P 10DLC compliance in review.</div></div>
   <div class="api-card"><div class="api-name">Alpaca Markets API</div><div class="api-used">Used by: Trading Bot</div><div class="api-detail">Places bracket orders, reads positions, streams market data. Paper trading mode.</div></div>
@@ -409,16 +434,18 @@ a{color:#7dd3fc;text-decoration:none;}a:hover{text-decoration:underline;}
 <table>
   <thead><tr><th>Item</th><th>Status</th><th>Notes</th></tr></thead>
   <tbody>
-    <tr><td>Habitat server (Railway)</td><td class="ok">Live</td><td>agent-habitat-production.up.railway.app — all rooms running</td></tr>
-    <tr><td>Trading Bot (Railway)</td><td class="ok">Live</td><td>235-stock scanner active — backup take-profit + short guard just deployed</td></tr>
+    <tr><td>Habitat server (Railway)</td><td class="ok">Live</td><td>agent-habitat-production.up.railway.app — all 10 rooms running</td></tr>
+    <tr><td>Trading Bot (Railway)</td><td class="ok">Live</td><td>235-stock scanner active — backup take-profit + short guard deployed</td></tr>
     <tr><td>The Stem Co. store</td><td class="ok">Live</td><td>Crystal glasses, acrylic, decanter — PayPal IPN wired to CJ auto-order</td></tr>
     <tr><td>Kantor Co. /hire page</td><td class="ok">Live</td><td>$99/$299/$499 packages — IPN auto-builds site + emails Jack</td></tr>
     <tr><td>Fiverr gig</td><td class="ok">Live</td><td>W-9 submitted, gig published at fiverr.com/s/99VegLx</td></tr>
-    <tr><td>TopPick articles</td><td class="ok">Running</td><td>thekantorco.com/kantor-content — articles deploying automatically</td></tr>
-    <tr><td>Prediction Markets</td><td class="ok">Scanning</td><td>Kalshi API — scanning every 10s for edge opportunities</td></tr>
+    <tr><td>TopPick articles</td><td class="ok">Running</td><td>thekantorco.com/kantor-content — deploying via GitHub API</td></tr>
+    <tr><td>Prediction Markets</td><td class="ok">Scanning</td><td>Kalshi API — scanning every 10s, low-balance alert wired to jbot0012@gmail.com</td></tr>
+    <tr><td>Etsy publishing (Digital Vault, Template Studio, Drop Factory)</td><td class="ok">Fixed</td><td>Auth 403 resolved — x-api-key now sends full keystring:secret. Deployed 2026-06-26.</td></tr>
+    <tr><td>Web Studio lead digest</td><td class="ok">Live</td><td>Daily email to jbot0012@gmail.com with new Denver leads, phone numbers, and pitch scripts.</td></tr>
     <tr><td>Pinterest Ads (Stem Co.)</td><td class="warn">Pending approval</td><td>3 ads submitted 2026-06-25, $7/day. Check performance 2026-07-02.</td></tr>
-    <tr><td>Twilio SMS outreach</td><td class="warn">Blocked</td><td>A2P 10DLC compliance in review. 12 leads ready. Fires at 5 texts/day once approved.</td></tr>
-    <tr><td>JaMadeGoods (Etsy)</td><td class="warn">Not published yet</td><td>Print Factory connected to Printify but no live Etsy listings — needs investigation.</td></tr>
+    <tr><td>Twilio SMS outreach</td><td class="warn">Blocked</td><td>A2P 10DLC compliance in review. Fires at 5 texts/day once approved.</td></tr>
+    <tr><td>JaMadeGoods (Etsy print-on-demand)</td><td class="warn">Not live yet</td><td>Printify API connected, Etsy auth fixed — first listings pending from next agent cycle.</td></tr>
     <tr><td>Amazon Associates full API</td><td class="warn">Waiting</td><td>Need 3 qualifying sales to unlock Product Advertising API.</td></tr>
     <tr><td>Google Analytics</td><td class="err">Not set up</td><td>No tracking on stem-co or portfolio yet.</td></tr>
   </tbody>
