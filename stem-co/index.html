@@ -88,6 +88,22 @@ h2.serif{font-family:'Cormorant Garamond',serif;font-size:clamp(32px,4vw,48px);f
 .etsy-badge{display:inline-flex;align-items:center;gap:6px;background:#f1641e;color:#fff;padding:4px 12px;border-radius:20px;font-size:11px;font-weight:700;margin-bottom:12px;letter-spacing:0.5px;}
 
 
+/* DECANTER */
+.decanter{padding:90px 24px;background:linear-gradient(135deg,var(--dark),#1f1a2e);}
+.decanter-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center;}
+.decanter-imgs{display:grid;grid-template-columns:1fr 1fr;gap:8px;}
+.decanter-imgs img{width:100%;border-radius:4px;display:block;aspect-ratio:1;object-fit:cover;}
+.decanter-imgs img:first-child{grid-column:1/-1;aspect-ratio:16/9;}
+.decanter-text{color:#fff;}
+.decanter-text .section-label{color:var(--gold);}
+.decanter-text h2{font-family:'Cormorant Garamond',serif;font-size:clamp(32px,4vw,48px);font-weight:600;line-height:1.2;margin-bottom:16px;}
+.decanter-text p{opacity:0.75;font-size:15px;margin-bottom:24px;line-height:1.8;}
+.decanter-feature-list{list-style:none;padding:0;margin:0 0 28px;}
+.decanter-feature-list li{padding:8px 0;font-size:14px;color:rgba(255,255,255,0.8);display:flex;gap:10px;border-bottom:1px solid rgba(255,255,255,0.08);}
+.decanter-feature-list li::before{content:'✦';color:var(--gold);font-size:10px;flex-shrink:0;margin-top:4px;}
+.decanter-price{font-size:36px;font-weight:800;color:var(--gold);margin-bottom:4px;}
+.decanter-price-sub{font-size:13px;color:rgba(255,255,255,0.5);margin-bottom:20px;}
+
 /* GUARANTEE */
 .guarantee{padding:60px 24px;text-align:center;background:#fff;}
 .guarantee-inner{max-width:700px;margin:0 auto;}
@@ -100,7 +116,7 @@ footer a{color:rgba(255,255,255,0.3);}
 
 /* RESPONSIVE */
 @media(max-width:768px){
-  .product-inner,.product-inner.reverse,.chiller-inner{grid-template-columns:1fr;direction:ltr;}
+  .product-inner,.product-inner.reverse,.decanter-inner{grid-template-columns:1fr;direction:ltr;}
   .product-inner.reverse > *{direction:ltr;}
   .occasion-grid{grid-template-columns:1fr;}
   .trust{gap:20px;}
@@ -117,6 +133,7 @@ footer a{color:rgba(255,255,255,0.3);}
   <div class="nav-links">
     <a href="#crystal">Crystal</a>
     <a href="#party">Party</a>
+    <a href="#decanter">Decanter</a>
     <a href="#occasions">Occasions</a>
     <a href="#crystal" class="nav-cta">Shop Now</a>
   </div>
@@ -238,6 +255,41 @@ footer a{color:rgba(255,255,255,0.3);}
   </div>
 </section>
 
+
+<!-- DECANTER -->
+<section class="decanter" id="decanter">
+  <div class="decanter-inner">
+    <div class="decanter-imgs fade-up">
+      <img src="https://oss-cf.cjdropshipping.com/product/2024/10/17/05/25bae583-9e66-4910-bbfe-5d89f71fef5b.jpg" alt="Iceberg Waterfall Wine Decanter">
+      <img src="https://oss-cf.cjdropshipping.com/product/2024/10/17/05/aa9dde98-e26a-475c-81b7-4123560b5068.jpg" alt="Decanter detail">
+    </div>
+    <div class="decanter-text fade-up">
+      <span class="section-label">The Signature Piece</span>
+      <h2>Iceberg Waterfall Decanter — Lead-Free Crystal</h2>
+      <p>Wine pours in, cascades over the iceberg, and aerates instantly. This isn't just a decanter — it's the centerpiece of every table. Lead-free crystal glass, double-wall insulated, and ready to impress.</p>
+      <ul class="decanter-feature-list">
+        <li>Lead-free crystal glass — safe and elegant</li>
+        <li>Waterfall aerating design — opens the wine instantly</li>
+        <li>Double-layer insulated — keeps wine at temperature</li>
+        <li>Holds a full bottle of wine or champagne</li>
+        <li>Perfect gift — arrives presentation-ready</li>
+      </ul>
+      <div class="decanter-price">$44.95</div>
+      <div class="decanter-price-sub">Free US shipping · 30-day guarantee</div>
+      <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
+        <input type="hidden" name="cmd" value="_xclick">
+        <input type="hidden" name="business" value="jbot0012@gmail.com">
+        <input type="hidden" name="item_name" value="The Stem Co. Iceberg Waterfall Decanter">
+        <input type="hidden" name="amount" value="44.95">
+        <input type="hidden" name="currency_code" value="USD">
+        <input type="hidden" name="shipping" value="0">
+        <input type="hidden" name="no_note" value="1">
+        <input type="hidden" name="return" value="https://thekantorco.com/stem-co/thanks.html">
+        <button type="submit" class="buy-btn" style="max-width:320px;">Order Now — $44.95</button>
+      </form>
+    </div>
+  </div>
+</section>
 
 <!-- GUARANTEE -->
 <section class="guarantee">
