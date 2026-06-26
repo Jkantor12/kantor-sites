@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Silque — The Cooling Pillowcase That Changes Your Morning</title>
+<meta name="description" content="Wake up to smoother hair and refreshed skin. Silque's ultra-smooth lyocell pillowcase stays cool all night, reduces frizz, and feels like luxury. Free shipping, 30-day guarantee.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+:root{--primary:#b5838d;--primary-dark:#9a6675;--accent:#e8c4c0;--cream:#fdf6f0;--dark:#2d2020;--text:#444;--light:#fafafa;}
+body{font-family:'Inter',sans-serif;color:var(--text);line-height:1.7;background:#fff;}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:16px 0;transition:all 0.3s;}
+nav.scrolled{background:rgba(45,32,32,0.96);backdrop-filter:blur(12px);box-shadow:0 2px 20px rgba(0,0,0,0.12);}
+.nav-inner{max-width:1100px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;}
+.logo{font-family:'Playfair Display',serif;font-size:26px;font-weight:700;color:#fff;font-style:italic;}
+.logo span{color:var(--accent);}
+.nav-links{display:flex;gap:28px;align-items:center;}
+.nav-links a{color:rgba(255,255,255,0.8);text-decoration:none;font-size:14px;font-weight:500;}
+.nav-cta{background:var(--primary);color:#fff!important;padding:10px 24px;border-radius:50px;font-weight:700;transition:all 0.2s;}
+.nav-cta:hover{background:var(--primary-dark);transform:scale(1.03);}
+
+/* HERO */
+.hero{min-height:100vh;background:linear-gradient(135deg,#2d2020 0%,#4a2c35 50%,#6b3d4a 100%);display:flex;align-items:center;color:#fff;position:relative;overflow:hidden;}
+.hero::after{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.02'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");}
+.hero-content{max-width:1100px;margin:0 auto;padding:100px 24px 60px;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;position:relative;z-index:1;}
+.hero-badge{display:inline-block;background:rgba(229,196,192,0.15);border:1px solid rgba(229,196,192,0.3);color:var(--accent);padding:6px 16px;border-radius:50px;font-size:11px;font-weight:700;letter-spacing:2px;margin-bottom:20px;text-transform:uppercase;}
+.hero h1{font-family:'Playfair Display',serif;font-size:clamp(34px,4.5vw,54px);font-weight:700;line-height:1.15;margin-bottom:16px;}
+.hero h1 em{font-style:italic;color:var(--accent);}
+.hero p{font-size:17px;opacity:0.82;margin-bottom:28px;max-width:460px;line-height:1.75;}
+.price-row{display:flex;align-items:baseline;gap:14px;margin-bottom:28px;}
+.price-current{font-size:38px;font-weight:900;color:var(--accent);}
+.price-original{font-size:18px;text-decoration:line-through;opacity:0.4;}
+.price-save{background:rgba(229,196,192,0.2);color:var(--accent);padding:4px 12px;border-radius:20px;font-size:12px;font-weight:700;}
+.hero-btns{display:flex;gap:12px;flex-wrap:wrap;}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:15px 34px;border-radius:50px;text-decoration:none;font-weight:700;font-size:15px;transition:all 0.2s;cursor:pointer;border:none;}
+.btn-primary{background:var(--primary);color:#fff;box-shadow:0 4px 24px rgba(181,131,141,0.4);}
+.btn-primary:hover{background:var(--primary-dark);transform:translateY(-2px);box-shadow:0 8px 32px rgba(181,131,141,0.45);}
+.btn-ghost{border:2px solid rgba(255,255,255,0.25);color:#fff;background:transparent;}
+.btn-ghost:hover{background:rgba(255,255,255,0.08);}
+
+/* HERO IMAGES */
+.hero-visual{position:relative;}
+.hero-img-main{width:100%;border-radius:20px;box-shadow:0 30px 80px rgba(0,0,0,0.35);display:block;}
+.hero-img-accent{position:absolute;bottom:-20px;left:-30px;width:42%;border-radius:14px;box-shadow:0 16px 40px rgba(0,0,0,0.3);border:3px solid rgba(255,255,255,0.1);}
+
+/* TRUST BAR */
+.trust{background:var(--dark);padding:22px 24px;display:flex;justify-content:center;gap:48px;flex-wrap:wrap;color:rgba(255,255,255,0.7);font-size:13px;font-weight:500;}
+.trust span{display:flex;align-items:center;gap:6px;}
+.trust span::before{content:'✓';color:var(--accent);font-weight:700;}
+
+/* SOCIAL PROOF */
+.social-proof{background:var(--cream);padding:48px 24px;text-align:center;}
+.social-proof p{font-family:'Playfair Display',serif;font-size:20px;font-style:italic;color:var(--dark);max-width:600px;margin:0 auto 16px;}
+.social-proof small{color:#999;font-size:12px;letter-spacing:1px;}
+
+/* GALLERY */
+.gallery{padding:70px 24px;background:#fff;}
+.gallery-inner{max-width:1100px;margin:0 auto;}
+.section-header{text-align:center;margin-bottom:48px;}
+.section-header .tag{display:inline-block;color:var(--primary);font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:10px;}
+.section-header h2{font-family:'Playfair Display',serif;font-size:36px;color:var(--dark);}
+.section-header p{color:#888;font-size:15px;max-width:480px;margin:10px auto 0;}
+.gallery-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;}
+.gallery-grid img{width:100%;aspect-ratio:1;object-fit:cover;border-radius:14px;transition:transform 0.3s;cursor:pointer;}
+.gallery-grid img:hover{transform:scale(1.03);}
+
+/* BENEFITS */
+.benefits{padding:70px 24px;background:var(--cream);}
+.benefits-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;}
+.benefits-img{border-radius:20px;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,0.08);}
+.benefits-img img{width:100%;display:block;}
+.benefits-text h2{font-family:'Playfair Display',serif;font-size:34px;color:var(--dark);margin-bottom:20px;}
+.benefit{display:flex;gap:16px;margin-bottom:24px;}
+.benefit-icon{width:44px;height:44px;background:var(--accent);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0;}
+.benefit h3{font-size:16px;font-weight:700;color:var(--dark);margin-bottom:4px;}
+.benefit p{font-size:14px;color:#777;line-height:1.6;}
+
+/* COLORS */
+.colors{padding:70px 24px;background:#fff;}
+.colors-inner{max-width:900px;margin:0 auto;text-align:center;}
+.color-grid{display:flex;flex-wrap:wrap;justify-content:center;gap:16px;margin-top:36px;}
+.color-swatch{text-align:center;cursor:pointer;}
+.swatch-circle{width:56px;height:56px;border-radius:50%;margin:0 auto 8px;border:3px solid transparent;transition:all 0.2s;box-shadow:0 2px 8px rgba(0,0,0,0.1);}
+.color-swatch:hover .swatch-circle,.color-swatch.active .swatch-circle{border-color:var(--dark);transform:scale(1.1);}
+.swatch-label{font-size:11px;color:#888;font-weight:500;}
+
+/* ORDER */
+.order{padding:80px 24px;background:linear-gradient(135deg,var(--dark),#4a2c35);}
+.order-inner{max-width:900px;margin:0 auto;text-align:center;color:#fff;}
+.order h2{font-family:'Playfair Display',serif;font-size:40px;margin-bottom:12px;}
+.order p{opacity:0.75;font-size:16px;margin-bottom:40px;}
+.pricing-cards{display:grid;grid-template-columns:1fr 1fr;gap:24px;max-width:620px;margin:0 auto 32px;}
+.pricing-card{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);border-radius:20px;padding:32px;transition:all 0.3s;}
+.pricing-card.featured{background:rgba(229,196,192,0.12);border-color:var(--accent);}
+.pricing-card .badge{display:inline-block;background:var(--primary);color:#fff;font-size:10px;font-weight:700;letter-spacing:1px;padding:3px 10px;border-radius:20px;margin-bottom:12px;text-transform:uppercase;}
+.pricing-card .plan{font-size:18px;font-weight:700;margin-bottom:8px;}
+.pricing-card .price{font-size:36px;font-weight:900;color:var(--accent);}
+.pricing-card .per{font-size:13px;opacity:0.6;margin-top:2px;}
+.pricing-card .savings{font-size:12px;color:#b5d5a0;margin-top:4px;}
+.order-select{margin-top:20px;}
+.order-select select{padding:12px 20px;border-radius:50px;border:2px solid rgba(229,196,192,0.3);background:rgba(255,255,255,0.05);color:#fff;font-size:14px;font-weight:600;cursor:pointer;margin-bottom:16px;width:100%;max-width:300px;}
+.paypal-wrap{margin-top:20px;}
+.order-guarantee{margin-top:24px;font-size:13px;opacity:0.55;}
+
+/* REVIEWS */
+.reviews{padding:70px 24px;background:var(--light);}
+.reviews-inner{max-width:1100px;margin:0 auto;}
+.reviews-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:40px;}
+.review{background:#fff;border-radius:16px;padding:28px;box-shadow:0 2px 12px rgba(0,0,0,0.04);}
+.stars{color:#f59e0b;font-size:16px;margin-bottom:12px;}
+.review-text{color:#555;font-size:14px;font-style:italic;line-height:1.75;margin-bottom:16px;}
+.reviewer{font-weight:700;font-size:13px;color:var(--dark);}
+.reviewer span{font-weight:400;color:#aaa;}
+
+/* FOOTER */
+.guarantee-bar{padding:32px 24px;text-align:center;background:var(--cream);border-top:1px solid #eee;}
+.guarantee-bar p{font-size:13px;color:#999;max-width:560px;margin:0 auto;}
+footer{background:var(--dark);color:rgba(255,255,255,0.4);padding:32px 24px;text-align:center;font-size:12px;}
+footer a{color:rgba(255,255,255,0.3);}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+  .hero-content{grid-template-columns:1fr;text-align:center;}
+  .hero-visual{order:-1;}
+  .hero p,.price-row{text-align:left;}
+  .hero-btns{justify-content:center;}
+  .hero-img-accent{display:none;}
+  .gallery-grid{grid-template-columns:repeat(2,1fr);}
+  .benefits-inner{grid-template-columns:1fr;}
+  .pricing-cards{grid-template-columns:1fr;}
+  .reviews-grid{grid-template-columns:1fr;}
+  .trust{gap:20px;}
+}
+
+.fade-up{opacity:0;transform:translateY(20px);transition:opacity 0.5s,transform 0.5s;}
+.fade-up.visible{opacity:1;transform:none;}
+</style>
+</head>
+<body>
+
+<nav id="mainNav"><div class="nav-inner">
+  <div class="logo"><em>Silque</em></div>
+  <div class="nav-links">
+    <a href="#gallery">Gallery</a>
+    <a href="#reviews">Reviews</a>
+    <a href="#order" class="nav-cta">Shop Now</a>
+  </div>
+</div></nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-content">
+    <div class="hero-text">
+      <div class="hero-badge">New Arrival — Limited Colors</div>
+      <h1>Wake Up to <em>Smoother Hair</em> Every Morning</h1>
+      <p>Our ultra-smooth lyocell pillowcase reduces friction on hair and skin while staying naturally cool all night. The upgrade your sleep routine has been missing.</p>
+      <div class="price-row">
+        <span class="price-current">$22.95</span>
+        <span class="price-original">$44.95</span>
+        <span class="price-save">SAVE 49%</span>
+      </div>
+      <div class="hero-btns">
+        <a href="#order" class="btn btn-primary">Order Now — Free Shipping</a>
+        <a href="#gallery" class="btn btn-ghost">See It</a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <img src="https://oss-cf.cjdropshipping.com/product/2026/06/16/04/f5204d65-b601-4530-aae2-c3245330fc4d_trans.jpeg" alt="Silque Lyocell Pillowcase" class="hero-img-main">
+      <img src="https://oss-cf.cjdropshipping.com/product/2026/06/16/04/85993c78-a33b-4b39-be2c-37bc3c453693_trans.jpeg" alt="Silque pillowcase detail" class="hero-img-accent">
+    </div>
+  </div>
+</section>
+
+<div class="trust">
+  <span>Free Shipping Worldwide</span>
+  <span>30-Day Money Back Guarantee</span>
+  <span>Secure PayPal Checkout</span>
+  <span>Ships in 1–2 Business Days</span>
+</div>
+
+<!-- SOCIAL PROOF -->
+<div class="social-proof">
+  <p>"I noticed the difference the very first morning. No more frizz, no more crease lines. This is the one thing I didn't know I needed."</p>
+  <small>— VERIFIED CUSTOMER REVIEW</small>
+</div>
+
+<!-- GALLERY -->
+<section class="gallery" id="gallery">
+  <div class="gallery-inner">
+    <div class="section-header fade-up">
+      <div class="tag">The Product</div>
+      <h2>See It in Every Light</h2>
+      <p>Ultra-smooth lyocell that looks as good as it feels.</p>
+    </div>
+    <div class="gallery-grid">
+      <img src="https://oss-cf.cjdropshipping.com/product/2026/06/16/04/e25ef127-ce25-48ac-858f-853d4909d331_trans.jpeg" alt="Silque pillowcase on bed" loading="lazy">
+      <img src="https://oss-cf.cjdropshipping.com/product/2026/06/16/04/06f95067-c3d1-469f-b33d-6dda5f07d1d1_trans.jpeg" alt="Silque pillowcase close up" loading="lazy">
+      <img src="https://oss-cf.cjdropshipping.com/product/2026/06/16/04/d6b6020b-5a59-484b-a637-d5fea4219446_trans.jpeg" alt="Silque pillowcase texture" loading="lazy">
+      <img src="https://oss-cf.cjdropshipping.com/product/2026/06/16/04/5418a66e-11be-4b06-afca-d521e7b8bb69_trans.jpeg" alt="Silque pillowcase lifestyle" loading="lazy">
+    </div>
+  </div>
+</section>
+
+<!-- BENEFITS -->
+<section class="benefits" id="features">
+  <div class="benefits-inner">
+    <div class="benefits-img fade-up">
+      <img src="https://oss-cf.cjdropshipping.com/product/2026/06/16/04/a90143b0-000e-4757-a2bd-b530966cc016_trans.jpeg" alt="Silque pillowcase beauty benefits">
+    </div>
+    <div class="benefits-text fade-up">
+      <h2>Your Hair and Skin Will Thank You</h2>
+      <div class="benefit">
+        <div class="benefit-icon">💆</div>
+        <div>
+          <h3>Reduces Hair Frizz &amp; Breakage</h3>
+          <p>The ultra-smooth lyocell surface creates less friction than cotton, meaning fewer tangles, less breakage, and smoother hair every morning.</p>
+        </div>
+      </div>
+      <div class="benefit">
+        <div class="benefit-icon">🌙</div>
+        <div>
+          <h3>Naturally Cooling All Night</h3>
+          <p>Lyocell fiber is highly breathable and wicks moisture away. You'll stay cool and comfortable even on warm nights — no flipping the pillow.</p>
+        </div>
+      </div>
+      <div class="benefit">
+        <div class="benefit-icon">✨</div>
+        <div>
+          <h3>Gentle on Skin</h3>
+          <p>Softer than cotton, less likely to cause sleep creases. A small change with a noticeable difference to how refreshed your skin looks each morning.</p>
+        </div>
+      </div>
+      <div class="benefit">
+        <div class="benefit-icon">🎨</div>
+        <div>
+          <h3>11 Gorgeous Colors</h3>
+          <p>From soft blush to deep sage. Standard size (48×74 cm) fits most pillows. Machine washable and gets softer with every wash.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COLORS -->
+<section class="colors">
+  <div class="colors-inner">
+    <div class="section-header fade-up">
+      <div class="tag">Choose Your Color</div>
+      <h2>11 Colors to Match Your Bedroom</h2>
+    </div>
+    <div class="color-grid">
+      <div class="color-swatch active"><div class="swatch-circle" style="background:#b8d4e3;"></div><div class="swatch-label">Sea Salt Blue</div></div>
+      <div class="color-swatch"><div class="swatch-circle" style="background:#9ca3af;"></div><div class="swatch-label">Classic Gray</div></div>
+      <div class="color-swatch"><div class="swatch-circle" style="background:#f4b8c1;"></div><div class="swatch-label">Peach Pink</div></div>
+      <div class="color-swatch"><div class="swatch-circle" style="background:#c9b08a;"></div><div class="swatch-label">Champagne Gold</div></div>
+      <div class="color-swatch"><div class="swatch-circle" style="background:#93c5d4;"></div><div class="swatch-label">Sky Blue</div></div>
+      <div class="color-swatch"><div class="swatch-circle" style="background:#a78fc4;"></div><div class="swatch-label">Hyacinth Purple</div></div>
+      <div class="color-swatch"><div class="swatch-circle" style="background:#f5f0e8;border:1px solid #e0d8cc;"></div><div class="swatch-label">Antique White</div></div>
+      <div class="color-swatch"><div class="swatch-circle" style="background:#a8c5a0;"></div><div class="swatch-label">Grass Green</div></div>
+      <div class="color-swatch"><div class="swatch-circle" style="background:#f9c8c0;"></div><div class="swatch-label">Cherry Blossom</div></div>
+      <div class="color-swatch"><div class="swatch-circle" style="background:#b0b8bf;"></div><div class="swatch-label">Quicksand Gray</div></div>
+      <div class="color-swatch"><div class="swatch-circle" style="background:#d4c5a8;"></div><div class="swatch-label">Fan Gaolan</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCT IMAGES 2 -->
+<div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:0;">
+  <img src="https://oss-cf.cjdropshipping.com/product/2026/06/16/04/b24bb21b-2da0-47b8-b5c5-fd89c469bf33_trans.jpeg" alt="Silque pillowcase folded" style="width:100%;height:340px;object-fit:cover;display:block;">
+  <img src="https://oss-cf.cjdropshipping.com/product/2026/06/16/04/d179c553-1cf3-4d92-996d-478c412a31c1_trans.jpeg" alt="Silque pillowcase colors" style="width:100%;height:340px;object-fit:cover;display:block;">
+  <img src="https://oss-cf.cjdropshipping.com/product/2026/06/16/04/59475dd6-e2fa-45ed-aabe-ea9bf07ebbcb_trans.jpeg" alt="Silque pillowcase lifestyle" style="width:100%;height:340px;object-fit:cover;display:block;">
+</div>
+
+<!-- REVIEWS -->
+<section class="reviews" id="reviews">
+  <div class="reviews-inner">
+    <div class="section-header fade-up">
+      <div class="tag">Customer Reviews</div>
+      <h2>People Are Loving Their Silque</h2>
+    </div>
+    <div class="reviews-grid">
+      <div class="review fade-up">
+        <div class="stars">★★★★★</div>
+        <div class="review-text">"My hair has been so much less frizzy since switching. I didn't realize how much a pillowcase could actually matter. Bought a second one for my partner."</div>
+        <div class="reviewer">Madison T. <span>— Verified Buyer</span></div>
+      </div>
+      <div class="review fade-up">
+        <div class="stars">★★★★★</div>
+        <div class="review-text">"It stays cool the entire night, which is huge for me. The color (Champagne Gold) looks exactly like in the photo and the fabric is incredibly soft. So glad I ordered."</div>
+        <div class="reviewer">Priya R. <span>— Verified Buyer</span></div>
+      </div>
+      <div class="review fade-up">
+        <div class="stars">★★★★★</div>
+        <div class="review-text">"Ordered the pair and the price is unbelievably good for this quality. They wash great, don't wrinkle badly, and the hyacinth purple is gorgeous."</div>
+        <div class="reviewer">Camille B. <span>— Verified Buyer</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ORDER -->
+<section class="order" id="order">
+  <div class="order-inner">
+    <h2>Ready to Sleep Better?</h2>
+    <p>Free worldwide shipping. 30-day no-questions-asked returns. Secure PayPal checkout.</p>
+    <div class="pricing-cards">
+      <div class="pricing-card">
+        <div class="plan">Single Pillowcase</div>
+        <div class="price">$22.95</div>
+        <div class="per">one pillowcase, your choice of color</div>
+      </div>
+      <div class="pricing-card featured">
+        <div class="badge">Best Value</div>
+        <div class="plan">Pair (2 Pillowcases)</div>
+        <div class="price">$34.95</div>
+        <div class="per">two pillowcases, mix &amp; match colors</div>
+        <div class="savings">Save $10.95 vs buying separately</div>
+      </div>
+    </div>
+    <div class="paypal-wrap">
+      <!-- Single -->
+      <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank" style="display:inline-block;margin:8px;">
+        <input type="hidden" name="cmd" value="_xclick">
+        <input type="hidden" name="business" value="jbot0012@gmail.com">
+        <input type="hidden" name="item_name" value="Silque Cooling Pillowcase — Single">
+        <input type="hidden" name="amount" value="22.95">
+        <input type="hidden" name="currency_code" value="USD">
+        <input type="hidden" name="shipping" value="0">
+        <input type="hidden" name="no_note" value="1">
+        <input type="hidden" name="return" value="https://thekantorco.com/silque/thanks.html">
+        <button type="submit" class="btn btn-ghost" style="font-size:14px;padding:14px 28px;">Order Single — $22.95</button>
+      </form>
+      <!-- Pair -->
+      <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank" style="display:inline-block;margin:8px;">
+        <input type="hidden" name="cmd" value="_xclick">
+        <input type="hidden" name="business" value="jbot0012@gmail.com">
+        <input type="hidden" name="item_name" value="Silque Cooling Pillowcase — Pair">
+        <input type="hidden" name="amount" value="34.95">
+        <input type="hidden" name="currency_code" value="USD">
+        <input type="hidden" name="shipping" value="0">
+        <input type="hidden" name="no_note" value="1">
+        <input type="hidden" name="return" value="https://thekantorco.com/silque/thanks.html">
+        <button type="submit" class="btn btn-primary" style="font-size:15px;">Order Pair — $34.95 ✓ Best Value</button>
+      </form>
+    </div>
+    <div class="order-guarantee">🔒 Secured by PayPal &nbsp;·&nbsp; 30-day money back &nbsp;·&nbsp; Free shipping worldwide</div>
+  </div>
+</section>
+
+<div class="guarantee-bar">
+  <p>We stand behind every Silque pillowcase. If you're not happy within 30 days, we'll refund you in full — no questions, no hassle. Your satisfaction is our priority.</p>
+</div>
+
+<footer>
+  <p>© 2026 Silque — A Kantor Co. Brand &nbsp;·&nbsp; <a href="https://thekantorco.com">thekantorco.com</a> &nbsp;·&nbsp; Questions? Email <a href="mailto:jbot0012@gmail.com">jbot0012@gmail.com</a></p>
+</footer>
+
+<script>
+// Nav scroll effect
+window.addEventListener('scroll',()=>{
+  document.getElementById('mainNav').classList.toggle('scrolled',window.scrollY>50);
+});
+// Fade-up on scroll
+const observer=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible');});
+},{threshold:0.1});
+document.querySelectorAll('.fade-up').forEach(el=>observer.observe(el));
+// Color swatch selector
+document.querySelectorAll('.color-swatch').forEach(sw=>{
+  sw.addEventListener('click',()=>{
+    document.querySelectorAll('.color-swatch').forEach(s=>s.classList.remove('active'));
+    sw.classList.add('active');
+  });
+});
+</script>
+</body>
+</html>
