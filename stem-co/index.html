@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="p:domain_verify" content="109af7112366c845bb8d11d49c0aec4c"/>
+<title>The Stem Co. — Wine Glasses & Bar Essentials</title>
+<meta name="description" content="Beautiful wine glasses and bar essentials for every occasion. The Crystal Collection, Party Collection, and the Wine Chiller. Free shipping.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+:root{--wine:#6b2737;--wine-dark:#4e1a27;--gold:#c9a96e;--cream:#faf7f2;--dark:#1a1410;--text:#3a3530;--mid:#7a736b;}
+body{font-family:'Inter',sans-serif;color:var(--text);background:#fff;line-height:1.7;}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:18px 0;transition:all 0.3s;}
+nav.scrolled{background:rgba(26,20,16,0.96);backdrop-filter:blur(12px);box-shadow:0 2px 24px rgba(0,0,0,0.15);}
+.nav-inner{max-width:1100px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;}
+.logo{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:600;color:#fff;letter-spacing:2px;text-transform:uppercase;}
+.logo span{color:var(--gold);}
+.nav-links{display:flex;gap:28px;align-items:center;}
+.nav-links a{color:rgba(255,255,255,0.75);text-decoration:none;font-size:13px;font-weight:500;letter-spacing:0.5px;}
+.nav-cta{background:var(--wine);color:#fff!important;padding:9px 22px;border-radius:4px;font-weight:600;transition:all 0.2s;}
+.nav-cta:hover{background:var(--wine-dark);}
+
+/* HERO */
+.hero{min-height:100vh;background:linear-gradient(160deg,#1a1410 0%,#2d1a1f 45%,#3d2030 100%);display:flex;align-items:center;color:#fff;position:relative;overflow:hidden;}
+.hero::before{content:'';position:absolute;top:0;right:0;width:50%;height:100%;background:url('https://cf.cjdropshipping.com/quick/product/890db110-ca89-4667-8d0b-1d91dac93432.jpg') center/cover;opacity:0.18;}
+.hero-content{max-width:1100px;margin:0 auto;padding:120px 24px 80px;position:relative;z-index:1;max-width:680px;}
+.hero-eyebrow{font-family:'Cormorant Garamond',serif;font-size:14px;letter-spacing:4px;text-transform:uppercase;color:var(--gold);margin-bottom:20px;}
+.hero h1{font-family:'Cormorant Garamond',serif;font-size:clamp(42px,6vw,72px);font-weight:600;line-height:1.1;margin-bottom:20px;}
+.hero h1 em{font-style:italic;color:var(--gold);}
+.hero p{font-size:17px;opacity:0.78;max-width:500px;margin-bottom:36px;line-height:1.8;}
+.hero-btns{display:flex;gap:14px;flex-wrap:wrap;}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:14px 32px;text-decoration:none;font-weight:600;font-size:14px;transition:all 0.2s;cursor:pointer;border:none;letter-spacing:0.5px;}
+.btn-primary{background:var(--wine);color:#fff;box-shadow:0 4px 20px rgba(107,39,55,0.35);}
+.btn-primary:hover{background:var(--wine-dark);transform:translateY(-1px);}
+.btn-outline{border:1px solid rgba(255,255,255,0.3);color:#fff;background:transparent;}
+.btn-outline:hover{background:rgba(255,255,255,0.07);}
+
+/* TRUST */
+.trust{background:var(--dark);padding:20px 24px;display:flex;justify-content:center;gap:48px;flex-wrap:wrap;color:rgba(255,255,255,0.6);font-size:12px;letter-spacing:1px;text-transform:uppercase;}
+.trust span{display:flex;align-items:center;gap:8px;}
+.trust span::before{content:'✦';color:var(--gold);font-size:8px;}
+
+/* SECTION HEADERS */
+.section-label{display:block;font-family:'Cormorant Garamond',serif;font-size:12px;letter-spacing:4px;text-transform:uppercase;color:var(--gold);margin-bottom:12px;}
+h2.serif{font-family:'Cormorant Garamond',serif;font-size:clamp(32px,4vw,48px);font-weight:600;color:var(--dark);line-height:1.2;}
+.sub{color:var(--mid);font-size:15px;max-width:480px;margin:12px 0 0;}
+
+/* PRODUCT SECTIONS */
+.product{padding:90px 24px;}
+.product-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center;}
+.product-inner.reverse{direction:rtl;}
+.product-inner.reverse > *{direction:ltr;}
+.product-gallery{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+.product-gallery img{width:100%;border-radius:4px;display:block;aspect-ratio:1;object-fit:cover;}
+.product-gallery img:first-child{grid-column:1/-1;aspect-ratio:16/9;}
+.product-text{}
+.price-block{margin:28px 0;padding:20px 0;border-top:1px solid #eee;border-bottom:1px solid #eee;}
+.price-main{font-size:32px;font-weight:800;color:var(--wine);}
+.price-sub{font-size:13px;color:var(--mid);margin-top:2px;}
+.feature-list{list-style:none;padding:0;margin:20px 0 28px;}
+.feature-list li{padding:7px 0;font-size:14px;color:var(--text);display:flex;align-items:flex-start;gap:10px;border-bottom:1px solid #f5f0eb;}
+.feature-list li::before{content:'—';color:var(--gold);font-weight:700;flex-shrink:0;}
+.paypal-form{margin-top:4px;}
+.paypal-form select{width:100%;padding:10px 14px;border:1px solid #ddd;border-radius:4px;font-size:14px;color:var(--text);background:#fff;margin-bottom:12px;font-family:'Inter',sans-serif;}
+.buy-btn{width:100%;padding:15px;background:var(--wine);color:#fff;border:none;border-radius:4px;font-size:15px;font-weight:700;cursor:pointer;transition:all 0.2s;letter-spacing:0.5px;font-family:'Inter',sans-serif;}
+.buy-btn:hover{background:var(--wine-dark);}
+.shipping-note{font-size:12px;color:var(--mid);text-align:center;margin-top:8px;}
+
+/* DIVIDER */
+.divider{max-width:1100px;margin:0 auto;height:1px;background:linear-gradient(90deg,transparent,#e0d8d0,transparent);}
+
+/* OCCASION SECTION */
+.occasion{padding:90px 24px;background:var(--cream);}
+.occasion-inner{max-width:1100px;margin:0 auto;}
+.occasion-header{text-align:center;margin-bottom:56px;}
+.occasion-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+.occasion-card{background:#fff;border-radius:4px;padding:36px;text-align:center;border:1px solid #e8e0d8;transition:box-shadow 0.3s;}
+.occasion-card:hover{box-shadow:0 8px 32px rgba(0,0,0,0.06);}
+.occasion-icon{font-size:32px;margin-bottom:16px;}
+.occasion-card h3{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:600;color:var(--dark);margin-bottom:8px;}
+.occasion-card p{font-size:14px;color:var(--mid);line-height:1.7;margin-bottom:16px;}
+.occasion-card a{font-size:13px;color:var(--wine);font-weight:600;text-decoration:none;letter-spacing:0.5px;}
+.occasion-card a:hover{text-decoration:underline;}
+.etsy-badge{display:inline-flex;align-items:center;gap:6px;background:#f1641e;color:#fff;padding:4px 12px;border-radius:20px;font-size:11px;font-weight:700;margin-bottom:12px;letter-spacing:0.5px;}
+
+/* CHILLER FEATURE */
+.chiller{padding:90px 24px;background:linear-gradient(135deg,var(--dark),#2d1a1f);}
+.chiller-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center;}
+.chiller-imgs{display:grid;grid-template-columns:1fr 1fr;gap:8px;}
+.chiller-imgs img{width:100%;border-radius:4px;display:block;aspect-ratio:1;object-fit:cover;}
+.chiller-imgs img:first-child{grid-column:1/-1;aspect-ratio:16/9;}
+.chiller-text{color:#fff;}
+.chiller-text .section-label{color:var(--gold);}
+.chiller-text h2{font-family:'Cormorant Garamond',serif;font-size:clamp(32px,4vw,48px);font-weight:600;line-height:1.2;margin-bottom:16px;}
+.chiller-text p{opacity:0.75;font-size:15px;margin-bottom:24px;line-height:1.8;}
+.chiller-feature-list{list-style:none;padding:0;margin:0 0 28px;}
+.chiller-feature-list li{padding:8px 0;font-size:14px;color:rgba(255,255,255,0.8);display:flex;gap:10px;border-bottom:1px solid rgba(255,255,255,0.08);}
+.chiller-feature-list li::before{content:'✦';color:var(--gold);font-size:10px;flex-shrink:0;margin-top:4px;}
+.chiller-price{font-size:36px;font-weight:800;color:var(--gold);margin-bottom:4px;}
+.chiller-price-sub{font-size:13px;color:rgba(255,255,255,0.5);margin-bottom:20px;}
+
+/* GUARANTEE */
+.guarantee{padding:60px 24px;text-align:center;background:#fff;}
+.guarantee-inner{max-width:700px;margin:0 auto;}
+.guarantee h3{font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:600;color:var(--dark);margin-bottom:12px;}
+.guarantee p{font-size:14px;color:var(--mid);line-height:1.8;}
+
+/* FOOTER */
+footer{background:var(--dark);color:rgba(255,255,255,0.4);padding:40px 24px;text-align:center;font-size:12px;letter-spacing:0.5px;}
+footer a{color:rgba(255,255,255,0.3);}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+  .product-inner,.product-inner.reverse,.chiller-inner{grid-template-columns:1fr;direction:ltr;}
+  .product-inner.reverse > *{direction:ltr;}
+  .occasion-grid{grid-template-columns:1fr;}
+  .trust{gap:20px;}
+  .hero-btns{flex-direction:column;width:fit-content;}
+}
+.fade-up{opacity:0;transform:translateY(20px);transition:opacity 0.6s,transform 0.6s;}
+.fade-up.visible{opacity:1;transform:none;}
+</style>
+</head>
+<body>
+
+<nav id="mainNav"><div class="nav-inner">
+  <div class="logo">The Stem<span> Co.</span></div>
+  <div class="nav-links">
+    <a href="#crystal">Crystal</a>
+    <a href="#party">Party</a>
+    <a href="#chiller">Chiller</a>
+    <a href="#occasions">Occasions</a>
+    <a href="#crystal" class="nav-cta">Shop Now</a>
+  </div>
+</div></nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-content">
+    <div class="hero-eyebrow">The Stem Co.</div>
+    <h1>Every Pour<br>Deserves the<br><em>Right Glass</em></h1>
+    <p>Elegant wine glasses and bar essentials for everyday moments and milestone celebrations. Shipped to your door.</p>
+    <div class="hero-btns">
+      <a href="#crystal" class="btn btn-primary">Shop the Collection</a>
+      <a href="#occasions" class="btn btn-outline">Occasion Glasses →</a>
+    </div>
+  </div>
+</section>
+
+<div class="trust">
+  <span>Free US Shipping</span>
+  <span>30-Day Guarantee</span>
+  <span>Secure PayPal Checkout</span>
+  <span>Ships in 1–2 Days</span>
+</div>
+
+<!-- CRYSTAL COLLECTION -->
+<section class="product" id="crystal">
+  <div class="product-inner">
+    <div class="product-gallery fade-up">
+      <img src="https://cf.cjdropshipping.com/quick/product/890db110-ca89-4667-8d0b-1d91dac93432.jpg" alt="The Stem Co. Crystal Wine Glass">
+      <img src="https://oss-cf.cjdropshipping.com/product/2026/06/25/03/581413bc-8e1c-4b3c-b00f-dcd824f2276d_trans.jpeg" alt="Crystal glass side view">
+      <img src="https://oss-cf.cjdropshipping.com/product/2026/06/25/03/aafe06d9-4b30-4039-be76-3dfc2b5d4a37_trans.jpeg" alt="Crystal glass detail">
+      <img src="https://oss-cf.cjdropshipping.com/product/2026/06/25/03/6c297bfb-638e-49f8-bbe2-2933b1a60f7a_trans.jpeg" alt="Crystal glass lifestyle">
+    </div>
+    <div class="product-text fade-up">
+      <span class="section-label">The Crystal Collection</span>
+      <h2 class="serif">Concave-Bottom Crystal Wine Glasses</h2>
+      <p class="sub">A flared, fluted design with a concave base that makes every pour feel like an occasion. Crystal-clear glass in five sizes — from a light white wine pour to a full Burgundy bowl.</p>
+      <div class="price-block">
+        <div class="price-main">$24.95</div>
+        <div class="price-sub">Set of 4 · Free US shipping · Your choice of size</div>
+      </div>
+      <ul class="feature-list">
+        <li>Concave-bottom crystal glass — catches the light beautifully</li>
+        <li>Five sizes: 250ml / 350ml / 450ml / 550ml / 720ml</li>
+        <li>Dishwasher safe, chip-resistant rim</li>
+        <li>Elegant enough for guests, durable enough for every night</li>
+      </ul>
+      <form class="paypal-form" action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
+        <input type="hidden" name="cmd" value="_xclick">
+        <input type="hidden" name="business" value="jbot0012@gmail.com">
+        <input type="hidden" name="item_name" value="The Stem Co. Crystal Wine Glass 4-Pack">
+        <input type="hidden" name="amount" value="24.95">
+        <input type="hidden" name="currency_code" value="USD">
+        <input type="hidden" name="shipping" value="0">
+        <input type="hidden" name="no_note" value="1">
+        <input type="hidden" name="return" value="https://thekantorco.com/stem-co/thanks.html">
+        <select name="on0">
+          <option value="">Choose your size</option>
+          <option value="250ml">250ml — White wine / Dessert</option>
+          <option value="350ml">350ml — Rosé / Light white</option>
+          <option value="450ml">450ml — All-purpose (most popular)</option>
+          <option value="550ml">550ml — Red wine</option>
+          <option value="720ml">720ml — Burgundy / Full bowl</option>
+        </select>
+        <button type="submit" class="buy-btn">Add to Cart — $24.95</button>
+      </form>
+      <div class="shipping-note">🔒 Secured by PayPal · 30-day returns · Free US shipping</div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- PARTY COLLECTION -->
+<section class="product" id="party" style="background:var(--cream);">
+  <div class="product-inner reverse">
+    <div class="product-gallery fade-up">
+      <img src="https://cf.cjdropshipping.com/quick/product/4c66ed3b-8a05-49a7-981a-96d0a215790e.jpg" alt="The Stem Co. Party Wine Glass">
+      <img src="https://cf.cjdropshipping.com/quick/product/ea5922b3-765c-4504-8db0-c317bb0e315e.jpg" alt="Party glass colors">
+      <img src="https://cf.cjdropshipping.com/quick/product/a2e045dd-034c-486e-8794-1e07480f2ffe.jpg" alt="Party glass lifestyle">
+      <img src="https://cf.cjdropshipping.com/quick/product/69803443-05be-4d1d-8aee-8f4415c3ec5c.jpg" alt="Party glass outdoor">
+    </div>
+    <div class="product-text fade-up">
+      <span class="section-label">The Party Collection</span>
+      <h2 class="serif">Shatter-Resistant Acrylic Wine Glasses</h2>
+      <p class="sub">Pool parties, backyard dinners, camping trips, bachelorette weekends. These colorful acrylic glasses look great, hold up to anything, and never shatter.</p>
+      <div class="price-block">
+        <div class="price-main">$24.95</div>
+        <div class="price-sub">Set of 4 · Free US shipping · Mix & match colors</div>
+      </div>
+      <ul class="feature-list">
+        <li>Shatter-resistant acrylic — pool and outdoor safe</li>
+        <li>Four colors: Green, Purple, Blue, Orange</li>
+        <li>22cm tall · light luxury vintage style</li>
+        <li>BPA-free food-grade plastic</li>
+      </ul>
+      <form class="paypal-form" action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
+        <input type="hidden" name="cmd" value="_xclick">
+        <input type="hidden" name="business" value="jbot0012@gmail.com">
+        <input type="hidden" name="item_name" value="The Stem Co. Party Acrylic Wine Glass 4-Pack">
+        <input type="hidden" name="amount" value="24.95">
+        <input type="hidden" name="currency_code" value="USD">
+        <input type="hidden" name="shipping" value="0">
+        <input type="hidden" name="no_note" value="1">
+        <input type="hidden" name="return" value="https://thekantorco.com/stem-co/thanks.html">
+        <select name="on0">
+          <option value="">Choose your color</option>
+          <option value="Green">Green</option>
+          <option value="Purple">Purple</option>
+          <option value="Blue">Blue</option>
+          <option value="Orange">Orange</option>
+          <option value="Mixed">Mixed Set (1 of each)</option>
+        </select>
+        <button type="submit" class="buy-btn">Add to Cart — $24.95</button>
+      </form>
+      <div class="shipping-note">🔒 Secured by PayPal · 30-day returns · Free US shipping</div>
+    </div>
+  </div>
+</section>
+
+<!-- WINE CHILLER -->
+<section class="chiller" id="chiller">
+  <div class="chiller-inner">
+    <div class="chiller-imgs fade-up">
+      <img src="https://cf.cjdropshipping.com/17822592/ad7a82aa-8ec5-4991-b544-b1a878249195.jpg" alt="Wine Chiller Bucket">
+      <img src="https://cf.cjdropshipping.com/17822592/3043e661-bf59-47a9-b0d4-985957550d93.jpg" alt="Wine chiller detail">
+      <img src="https://cf.cjdropshipping.com/17822592/90bd77dd-95d4-4065-a67c-f4e7ef43a976.jpg" alt="Wine chiller in use">
+      <img src="https://cf.cjdropshipping.com/17822592/61bbad6b-cbc9-4bc4-8722-fc0ec5077a33.jpg" alt="Wine chiller portable">
+    </div>
+    <div class="chiller-text fade-up">
+      <span class="section-label">The Premium Edit</span>
+      <h2>Wine Chiller Bucket — No Ice Needed</h2>
+      <p>Keeps wine and champagne at the perfect temperature for hours without any ice. Portable, insulated, and built for parties, camping, cars, and any occasion that calls for a cold bottle.</p>
+      <ul class="chiller-feature-list">
+        <li>Insulated — no ice required, stays cold for hours</li>
+        <li>Quick-cool technology built in</li>
+        <li>Works for wine, champagne, sparkling water</li>
+        <li>Portable handle — car, camping, party, boat</li>
+        <li>Premium gift option — arrives ready to give</li>
+      </ul>
+      <div class="chiller-price">$59.95</div>
+      <div class="chiller-price-sub">Free US shipping · 30-day guarantee</div>
+      <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
+        <input type="hidden" name="cmd" value="_xclick">
+        <input type="hidden" name="business" value="jbot0012@gmail.com">
+        <input type="hidden" name="item_name" value="The Stem Co. Wine Chiller Bucket">
+        <input type="hidden" name="amount" value="59.95">
+        <input type="hidden" name="currency_code" value="USD">
+        <input type="hidden" name="shipping" value="0">
+        <input type="hidden" name="no_note" value="1">
+        <input type="hidden" name="return" value="https://thekantorco.com/stem-co/thanks.html">
+        <button type="submit" class="buy-btn" style="max-width:320px;">Order Now — $59.95</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- OCCASION SECTION -->
+<section class="occasion" id="occasions">
+  <div class="occasion-inner">
+    <div class="occasion-header fade-up">
+      <span class="section-label">Special Occasions</span>
+      <h2 class="serif">Glasses for the Moments That Matter</h2>
+      <p class="sub" style="margin:12px auto 0;text-align:center;">Our occasion wine tumblers are available on Etsy — printed to order with celebration-ready designs.</p>
+    </div>
+    <div class="occasion-grid">
+      <div class="occasion-card fade-up">
+        <div class="occasion-icon">💍</div>
+        <div class="etsy-badge">Etsy</div>
+        <h3>Weddings &amp; Engagements</h3>
+        <p>Toasting tumblers with elegant wedding designs. Perfect for the rehearsal dinner, bridal party gifts, or the big day itself.</p>
+        <a href="https://www.etsy.com/shop/TheStemCo" target="_blank">Shop Wedding Glasses →</a>
+      </div>
+      <div class="occasion-card fade-up">
+        <div class="occasion-icon">🥂</div>
+        <div class="etsy-badge">Etsy</div>
+        <h3>Anniversaries &amp; Milestones</h3>
+        <p>Mark 25, 50, or any year with a beautiful wine tumbler. "Cheers to 25 Years" and milestone designs ready to ship.</p>
+        <a href="https://www.etsy.com/shop/TheStemCo" target="_blank">Shop Anniversary Glasses →</a>
+      </div>
+      <div class="occasion-card fade-up">
+        <div class="occasion-icon">🎂</div>
+        <div class="etsy-badge">Etsy</div>
+        <h3>Birthdays &amp; Celebrations</h3>
+        <p>50th, 60th, 70th birthday. Retirement. New Year. Any reason to raise a glass — we have the glass for it.</p>
+        <a href="https://www.etsy.com/shop/TheStemCo" target="_blank">Shop Birthday Glasses →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GUARANTEE -->
+<section class="guarantee">
+  <div class="guarantee-inner fade-up">
+    <h3>The Stem Co. Promise</h3>
+    <p>Every glass ships free within the US. If anything arrives damaged or you're not satisfied within 30 days, we'll make it right — full refund, no questions. We stand behind everything we sell.</p>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 The Stem Co. — A Kantor Co. Brand &nbsp;·&nbsp; <a href="https://thekantorco.com">thekantorco.com</a> &nbsp;·&nbsp; <a href="mailto:jbot0012@gmail.com">jbot0012@gmail.com</a></p>
+</footer>
+
+<script>
+window.addEventListener('scroll',()=>{
+  document.getElementById('mainNav').classList.toggle('scrolled',window.scrollY>60);
+});
+const obs=new IntersectionObserver(e=>{e.forEach(el=>{if(el.isIntersecting)el.target.classList.add('visible');});},{threshold:0.1});
+document.querySelectorAll('.fade-up').forEach(el=>obs.observe(el));
+</script>
+</body>
+</html>
